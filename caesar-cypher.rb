@@ -1,15 +1,21 @@
 def caesar_cipher(string,key)
     string_array = string.split("")
-    new_string_array = string_array.map do |char|
+    new_string = string_array.map do |char|
         ascii = char.ord + key
-        ascii > 122 ? ascii = 97 + ascii-123 : ascii
+
+        if char.ord >= 65 && char.ord <= 90
+            ascii > 90 ? ascii = 65 + ascii - 91 : ascii
+        elsif char.ord >= 97 &&char.ord <= 122
+            ascii > 122 ? ascii = 97 + ascii-123 : ascii
+        else
+            ascii = char.ord
+        end
         ascii.chr
-    end
-    p new_string_array.join
+    end.join
+    new_string
 end
 
-caesar_cipher("zebra", 3)
-p "a".ord
-p "z".ord
-p "A".ord
-p "Z".ord
+p caesar_cipher("What a string!", 5)
+
+p " ".ord
+p "!".ord
