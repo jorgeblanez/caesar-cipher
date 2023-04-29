@@ -16,6 +16,3 @@ def caesar_cipher(string,key)
 end
 
 p caesar_cipher("What a string!", 5)
-
-p " ".ord
-p "!".ord
